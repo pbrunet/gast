@@ -96,8 +96,8 @@ class GAstToAst3(GAstToAst):
                 func=self._visit(node.func),
                 args=self._visit(node.args),
                 keywords=self._visit(node.keywords),
-                starargs=[],
-                kwargs=[],
+                starargs=None,
+                kwargs=None,
             )
             return ast.copy_location(new_node, node)
 
@@ -109,8 +109,8 @@ class GAstToAst3(GAstToAst):
                 keywords=self._visit(node.keywords),
                 body=self._visit(node.body),
                 decorator_list=self._visit(node.decorator_list),
-                starargs=[],
-                kwargs=[],
+                starargs=None,
+                kwargs=None,
             )
             return ast.copy_location(new_node, node)
 

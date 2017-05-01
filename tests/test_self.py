@@ -20,16 +20,11 @@ class SelfTestCase(unittest.TestCase):
             gast.parse(content)
 
     def testCompile(self):
-        for src_py in ['/home/travis/build/pbrunet/gast/gast/ast2.py']:#self.srcs:
+        for src_py in self.srcs:
             with open(src_py) as f:
                 content = f.read()
             gnode = gast.parse(content)
-            print(content, src_py)
-            n = gast.gast_to_ast(gnode)
-            for l in n.body:
-                print(ast.dump(l))
-                compile(ast.Module(body=[l]), src_py, 'exec')
-            compile(n, src_py, 'exec')
+            compile(gast.gast_to_ast(gnode), src_py, 'exec')
 
     def test_unparse(self):
         for src_py in self.srcs:
