@@ -88,7 +88,7 @@ class GAstToAst3(GAstToAst):
         else:
             return self.generic_visit(node)
 
-    if sys.version_info.minor < 5:
+    if sys.version_info.minor < 6:
 
         def visit_Call(self, node):
             self.generic_visit(node)
